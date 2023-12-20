@@ -7,7 +7,7 @@ witter webapp (knock-off https://twitter.com/?lang=en)
 5. create post -> input text, (optional)picture, (optional)video
 6. Profile -> username, set profile picture, account's posts, logout
 
-Security:
+Security Goals:
 - XSS and SQLi prevention on every input (register, login, create post)
 - session management
 - login check on home, create post, profile
@@ -16,3 +16,8 @@ Security:
 
 done:
 - SQLi and XSS prevention on register&login
+- one account per username
+- hashed password on database
+- index, login, register can only be accessed if no account is logged in
+- added logout controller on AuthController
+    logout = <a href="./controller/AuthController.php?logout">Log Out</a>

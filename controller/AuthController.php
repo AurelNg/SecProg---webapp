@@ -59,7 +59,7 @@
         }
 
         if($valid == 1){
-            $sql = "SELECT username, `password` FROM users WHERE username = ?";
+            $sql = "SELECT user_id, username, `password` FROM users WHERE username = ?";
             $stmt = $db->prepare($sql);
             $stmt->bind_param("s", $username);
             $stmt->execute();
@@ -81,5 +81,10 @@
         }
         $_SESSION["error-message"] = $error;
         header("Location: ../login.php");
+    }
+    else if(isset($_GET['logout'])){
+        session_unset();
+        session_destroy();
+        header('Location: ../index.php');
     }
 ?>
