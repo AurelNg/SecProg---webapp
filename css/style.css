@@ -1,0 +1,434 @@
+body{
+    margin: 0px;
+    background-color: rgb(20, 20, 20);
+    font-family: sans-serif;
+}
+
+.index-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: black;
+    width: 65%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.index-box #logo{
+    width: 160px;
+    margin: 30px auto;
+}
+
+.index-box p{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 15px auto;
+    /* margin-top: 12px; */
+}
+
+.button{
+    display: block;
+    margin: 30px;
+    margin-top: 0px;
+    text-align: center;
+    padding: 7px 30px;
+    color: #006eff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid #006eff;
+}
+
+.button:hover{
+    background-color: #006eff;
+    color: white;
+}
+
+.conf-button{
+    display: block;
+    margin: 10px;
+    text-align: center;
+    padding: 7px 30px;
+    color: white;
+    background-color: #006eff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.conf-button:hover{
+    background-color:#005ad0;
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-buttons .button{
+    margin: 10px;
+}
+
+.form-buttons .button:hover{
+    background-color: white;
+    color: #005ad0;
+}
+
+.form-bar{
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.form-bar input{
+    background-color:rgb(37, 37, 37);
+    color: white;
+    width: 60%;
+    height: 40px;
+    margin: 15px auto;
+    padding-left: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+
+
+
+/* 
+.navbar{
+    background-color: white;
+    filter: drop-shadow(0px 4px 4px rgba(138, 138, 138, 0.242));
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    padding: 10px;
+    display: flex;
+    font-size: 15px;
+    height: 64px;
+}
+
+.navbutts{
+    margin-left: auto;
+    display: flex;
+    width: 250px;
+}
+
+.navbutton{
+    display: block;
+    background-color: #006eff;
+    margin: 13px;
+    margin-left: auto;
+    width: 90px;
+    text-align: center;
+    padding-top: 7px;
+    color: white;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid #006eff;
+}
+
+.navbutton:hover{
+    background-color: white;
+    color: #006eff;
+}
+
+.logbar{
+    border: 2px solid #006eff;
+    background-color:white;
+    width:400px;
+    margin:auto;
+    margin-top: 120px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.logbar img{
+    margin:auto;
+    display:block;
+    width:190px;
+    margin-top:20px;margin-bottom:20px;
+}
+
+.logbar input{
+    margin-left: 50px;
+    width: 285px;
+    height: 40px;
+    margin-bottom: 35px;
+    padding-left: 15px;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.logbar button{
+    font-size: 22px;
+    border-color:#006eff;
+    color:#006eff;
+    background-color: white;
+    display:block;
+    margin:auto;
+    margin-bottom:25px;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    width: 90px;
+    padding: 5px;
+    border-radius: 5%;
+}
+
+.profbutt{
+    margin-left: auto;
+    margin-right: none;
+    padding-left: 15px;
+    display: flex;
+}
+
+.profpic{
+    margin: auto;
+}
+
+.profpic img{
+    display: block;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    margin: auto;
+    border: 2.5px solid #006eff;
+}
+
+.profbutt div{
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.profbutt div p{
+    margin: auto;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.profbutt div a{
+    margin: auto;
+    text-decoration: none;
+    color: #006eff;
+    font-size: 13x;
+}
+
+.profile{
+    border: 2px solid #006eff;
+    background-color:white;
+    width:400px;
+    margin:auto;
+    margin-top: 110px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.profile img{
+    display:block;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:30px;
+
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    border: 1.75px solid #006eff;
+}
+
+.user{
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    font-size: 35px;
+    text-align: center;
+    color:#006eff;
+    margin-top: -10px;
+}
+
+.profilebutton{
+    display: block;
+    background-color: #006eff;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 7px;
+    width: 200px;
+    color: white;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 7px;
+    border: 2px solid #006eff;
+}
+
+.profilebutton:hover{
+    background-color: white;
+    color:#006eff;
+}
+
+.backbutton{
+    text-decoration: none;
+    font-style: bold;
+    font-size: 40px;
+    color: #006eff;
+    display: block;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: none;
+}
+
+.postbox{
+    border: 1.5px solid #006eff;
+    background-color:white;
+    filter: drop-shadow(0px 4px 4px rgba(138, 138, 138, 0.242));
+
+    width:600px;
+    margin:auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+}
+
+.postprofile{
+    display: flex;
+    margin: 20px;
+    margin-bottom: 15px;
+}
+
+.postprofile img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.25px solid #006eff;
+    margin-right: 10px;
+    filter: drop-shadow(0px 2px 2px rgba(138, 138, 138, 0.1));
+}
+
+.postprofile div{
+    display: block;
+}
+
+.postusername{
+    margin-top: 4px;
+    margin-bottom: 2px;
+    font-size: 18px;
+}
+
+.postdatetime{
+    margin-top: 2px;
+    margin-bottom: 3px;
+    font-size: 10px;
+    color: #006eff;
+}
+
+.postcontent{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 25px;
+}
+
+.postcontent b{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.postcontent p{
+    display: block;
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.makepostbox{
+    border: 1.5px solid gray;
+    background-color:white;
+    filter: drop-shadow(0px 4px 4px rgba(138, 138, 138, 0.242));
+
+    width:600px;
+    margin:auto;
+    margin-top: 30px;
+    margin-bottom: -10px;
+    border-radius: 10px;
+
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+}
+
+.makepostbox b{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.makepostbox input{
+    display: block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    padding-left: 8px;
+    border-radius: 5px;
+    border: solid 1.25px gray;
+    height: 25px;
+    width: 165px;
+}
+
+.makepostbox textarea{
+    display: block;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+    font-size: 16px;
+    padding-left: 8px;
+    padding-top: 8px;
+    border-radius: 5px;
+    border: solid 1.25px gray;
+    height: 70px;
+    width: 550px;
+    resize: none;
+}
+
+.makepostbox button{
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    width: 70px;
+    padding: 5px;
+    border-radius: 7px;
+
+    font-size: 18px;
+    border-color:#006eff;
+    color:#006eff;
+    background-color: white;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-style: italic;
+} */

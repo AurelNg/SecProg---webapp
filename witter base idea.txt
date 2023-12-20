@@ -1,0 +1,15 @@
+Sec Prog AoL
+witter webapp (knock-off https://twitter.com/?lang=en)
+1. index page -> register(create account), login
+2. register -> username, email, password, confirm password, DoB
+3. login -> username password [verify username on database]
+4. home -> all posts
+5. create post -> input text, (optional)picture, (optional)video
+6. Profile -> username, account's posts 
+
+Security:
+- XSS and SQLi prevention on every input (register, login, create post)
+- session management
+- login check on home, create post, profile
+- unset session on logout
+- file type and MIME checking on create post
