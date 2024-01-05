@@ -8,13 +8,52 @@ witter webapp (knock-off https://twitter.com/?lang=en)
 6. Profile -> display account info, change username, set profile picture, account's posts, logout
 
 To-Do:
-- file type and MIME checking on set profile picture
-- change username on profile(check username availibility on database, update username on database)
-- change profile picture(update on database)
+1. change username on profile(check username availibility on database, update username on database)
+	algorithmnya ga jauh beda sama register di AuthController.php
+2. change profile picture(MIME checking, update on database)
+    guide: (bisa juga check di PostsController.php)
+    <?php
+        session_start();
+        require("./connection.php");
+
+        if(isset($_GET["changeprofpic"])){
+            $attachment = $_FILES['img'];
+            $fileinfo = pathinfo($attachment["name"]);
+            $extension = $fileinfo['extension'];
+            
+            if(in_array($extension,['jpg','png','jpeg','webp'])){
+                $newfilename = strtolower($_SESSION["username"]).".".$extension;
+                $target = "../src/".$newfilename;
+                if($_SESSION["picture"] != "default.jpg"){
+                    unlink("../src/".$_SESSION["picture"]);
+                }
+                if(move_uploaded_file($attachment['tmp_name'],$target)){
+                    echo $_SESSION["picture"];
+                    $_SESSION["picture"] = $newfilename;
+                    $query = "UPDATE users SET picture=? WHERE id=?;";
+                    $statement = $db->prepare($query);
+                    $statement->bind_param("ss",$newfilename,$_SESSION["id"]);
+                    $statement->execute();
+                    $db->close();
+                    echo $_SESSION["picture"];
+                    echo $newfilename;
+                    echo $target;
+                    header("Location: ../profile.php");
+                    exit();
+                }else{
+                    $error = "File upload failed!";
+                };
+            }else{
+                $error = "File extension must be either jpg, png, jpeg or webp!";
+            }
+            $_SESSION["error-message"] = $error;
+            header("Location: ../profile.php");
+        }
+    ?>
 
 Security Suggestions:
 - session timeout
-- CSRF
+- CSRF token
 
 done:
 - SQLi and XSS prevention on register, login, create post

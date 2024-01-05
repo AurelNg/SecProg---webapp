@@ -12,14 +12,13 @@ if (isset($_POST["submit_post"])) {
     $text_content = htmlspecialchars($_POST["text_content"]);
 
     // Filetype validation
-    $allowedImageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
-    $allowedVideoMimeTypes = ['video/mp4', 'video/avi', 'video/quicktime'];
+    $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'video/mp4', 'video/avi', 'video/quicktime'];
 
     if(isset($_FILES["attachment"])){
         $attachment = $_FILES["attachment"];
         $fileinfo = pathinfo($attachment["name"]);
 
-        if(in_array($attachment["type"], $allowedImageMimeTypes)){
+        if(in_array($attachment["type"], $allowedImageTypes)){
             $newfilename = time().$_SESSION["username"].".".$fileinfo["extension"];
             $target = "../assets/uploads/".$newfilename;
             if(!move_uploaded_file($attachment["tmp_name"], $target)){
