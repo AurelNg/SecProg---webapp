@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require "../database/connection.php";
+    require "./database/connection.php";
     if (!isset($_SESSION["isLoggedIn"])) {
         header("Location: ../index.php");
         exit();
@@ -8,7 +8,7 @@
     
     $user_id = $_SESSION["user_id"];
     
-    $sql = "SELECT a.user_id, a.username, a.profile_img, b.post_id, b.text_content, b.attachment, b.created_at FROM users a JOIN posts b ON a.user_id = b.user_id WHERE user_id = ? ORDER BY created_at DESC";
+    $sql = "SELECT a.user_id, a.username, a.profile_img, b.post_id, b.text_content, b.attachment, b.created_at FROM users a JOIN posts b ON a.user_id = b.user_id WHERE a.user_id = ? ORDER BY created_at DESC";
     $stmt = $db->prepare($sql);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
