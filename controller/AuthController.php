@@ -59,7 +59,7 @@
         }
 
         if($valid == 1){
-            $sql = "SELECT user_id, username, `password` FROM users WHERE username = ?";
+            $sql = "SELECT user_id, username, `password`, profile_img, email FROM users WHERE username = ?";
             $stmt = $db->prepare($sql);
             $stmt->bind_param("s", $username);
             $stmt->execute();
@@ -72,7 +72,8 @@
                     $_SESSION['isLoggedIn'] = TRUE;
                     $_SESSION['user_id'] = $row['user_id'];
                     $_SESSION['username'] = $row['username'];
-                    $_SESSION['prof_img'] = $row['prof_img'];
+                    $_SESSION['profile_img'] = $row['profile_img'];
+                    $_SESSION['email'] = $row['email'];
                     header('Location: ../home.php');
                     exit();
                 }

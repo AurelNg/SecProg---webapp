@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2023 at 01:19 PM
+-- Generation Time: Jan 05, 2024 at 06:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,10 +31,16 @@ CREATE TABLE `posts` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `text_content` text NOT NULL,
-  `video_content` varchar(255) DEFAULT NULL,
-  `img_content` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `attachment` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `user_id`, `text_content`, `created_at`, `attachment`) VALUES
+(1, 1, 'Hello Witter👋', '2024-01-05 16:55:09', '1704473709asdf.jfif');
 
 -- --------------------------------------------------------
 
@@ -44,11 +50,18 @@ CREATE TABLE `posts` (
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `profile_img` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL
+  `profile_img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `profile_img`) VALUES
+(1, 'asdf', 'asdf@gmail.com', '$2y$10$8Tsm8JUAi6C12XM0Gud9N.mREukUNQtXhDmbR3RHe6vOzoB7f9fGm', 'default.jpg');
 
 --
 -- Indexes for dumped tables
@@ -58,7 +71,7 @@ CREATE TABLE `users` (
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
-  ADD PRIMARY KEY (`post_id`),
+  ADD PRIMARY KEY (`post_id`,`user_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -75,13 +88,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

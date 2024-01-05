@@ -2,6 +2,7 @@ body{
     margin: 0px;
     background-color: rgb(20, 20, 20);
     font-family: sans-serif;
+    color: white;
 }
 
 .index-box{
@@ -102,4 +103,107 @@ body{
     font-size: 20px;
     border-radius: 10px;
     font-size: 16px;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-right: 30px;
+    height: 60px;
+}
+
+header #logo{
+    width: 160px;
+    margin-left: 30px;
+    border-radius: 0%;
+}
+
+header li, a{
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+    color: white;
+    margin: auto 10px;
+}
+
+header a:hover{
+    border-bottom: 1px solid white;
+}
+
+header a[href*="logout"] {
+    transition: color 0.3s;
+}
+
+header a[href*="logout"]:hover {
+    color: #ff5555;
+}
+
+header div{
+    display: flex;
+}
+
+header img{
+    border-radius: 50%;
+    width: 50px;
+}
+
+/* profile */
+.content{
+    margin: auto;
+    max-width: 650px;
+}
+
+.content h2 {
+    font-size: 24px;
+    
+    text-align: center;
+}
+
+.content p {
+    margin: 10px;
+}
+
+.content img {
+    /* border-radius: 50%; */
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* home page  */
+.tweet-container {
+    margin-top: 20px;
+}
+
+.tweet {
+    display: flex;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 20px 30px;
+    padding: 10px;
+    align-items: center;
+}
+
+.tweet-content {
+    margin-left: 10px;
+}
+
+.createpost{
+    border: 1px solid #006eff;
+    border-radius: 10px;
+    padding: 30px;
+    margin: auto 30px;
+    display:flex;
+    flex-direction: column;
+}
+
+.createpost label{
+    margin-top: 20px;
+}
+
+.profileimg{
+    border-radius: 50%;
+    width: 50px;
 }
