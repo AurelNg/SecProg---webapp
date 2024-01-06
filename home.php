@@ -5,6 +5,23 @@
     }
     require "./database/connection.php";
 
+    // session timeout
+    if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+    // last request was more than 30 minutes ago
+        session_unset();     
+        session_destroy();   
+    }
+    $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+    
+    // avoid session fixation
+    if (!isset($_SESSION['CREATED'])) {
+        $_SESSION['CREATED'] = time();
+    } else if (time() - $_SESSION['CREATED'] > 1800) {
+        // session started more than 30 minutes ago
+        session_regenerate_id(true);    // change session ID for the current session and invalidate old session ID
+        $_SESSION['CREATED'] = time();  // update creation time
+    }
+
     $sql = "SELECT a.user_id, a.username, a.profile_img, b.post_id, b.text_content, b.attachment, b.created_at FROM users a JOIN posts b ON a.user_id = b.user_id ORDER BY created_at DESC";
     $result = $db->query($sql);
 
