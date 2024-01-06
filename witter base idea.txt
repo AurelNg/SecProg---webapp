@@ -51,10 +51,6 @@ To-Do:
         }
     ?>
 
-Security Suggestions:
-- session timeout
-- CSRF token
-
 done:
 - SQLi and XSS prevention on register, login, create post
 - one account per username
@@ -66,3 +62,4 @@ done:
 - added create post on home.php
 - unset session on logout
 - file type and MIME checking on create post
+- session timeout
